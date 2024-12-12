@@ -1,0 +1,35 @@
+// AI/ML Facts Array
+const facts = [
+    "The term 'Artificial Intelligence' was coined by John McCarthy in 1956.",
+    "Deep Learning is a subset of Machine Learning, which is a subset of AI.",
+    "The Turing Test was proposed by Alan Turing in 1950.",
+    "Neural networks are inspired by the human brain's structure.",
+    "The first chatbot, ELIZA, was created in 1966."
+    // Add more facts from the previous AI/ML facts list
+];
+
+function showSection(sectionId) {
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+}
+
+function displayRandomFact() {
+    const factDisplay = document.getElementById('fact-display');
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    factDisplay.textContent = facts[randomIndex];
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    alert('Message sent successfully!');
+    event.target.reset();
+}
+
+// Display initial random fact when facts section is shown
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('facts').classList.contains('active')) {
+        displayRandomFact();
+    }
+});
